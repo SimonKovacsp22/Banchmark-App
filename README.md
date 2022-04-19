@@ -15,9 +15,9 @@
 - Show HTML and CSS of first page
 
 (2) click on PROCEED button 
-- Hide text in <div> id="welcome-page-text" <div> with checkbox and PROCEED button
+- Hide text in  id="welcome-page-text"  with checkbox and PROCEED button
 - Proceed to first question (only if the check box is marked 'checked')
-- Show Question <div>, Show buttons with answers <div>, timer(start countdown), footer with question counter
+- Show Question , Show buttons with answers , timer(start countdown), footer with question counter
 
 (3) select answer by clicking on one of the buttons
 - Selected button changes color
@@ -25,7 +25,7 @@
 - By selecting different button -> deselect the initially selected one, submit button stays selected
 - *If time runs out* proceed to next question as if submit was clicked
 
-(4) submit button onclick -> proceed to next question *new question <div>, new buttons <div>*
+(4) submit button onclick -> proceed to next question *new question, new buttons *
 - Evaluate based on selected answer -> *if correct ans selected* cAC +=1 otherwise iAC +=1
 - Reset Timer
 - Increase question count in the bottom
