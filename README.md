@@ -11,7 +11,7 @@
 -
 -
 ### Main JS functionalities
-#### (1)load page 
+#### (1) load page 
 - Show HTML and CSS of first page
 
 #### (2) click on PROCEED button 
