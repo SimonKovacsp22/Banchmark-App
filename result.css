@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,22 +7,23 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
-  font-family: "Poppins", sans-serif;
+  font-family: "Outfit", sans-serif;
   background-size: cover;
   overflow: hidden;
 }
 /* main container */
 .container {
-  width: 65%;
+  width: 50%;
   height: 100vh;
   /* background-color: aqua;  */
   position: relative;
   margin: 0 auto;
-  top: 6vh;
+  top: 8vh;
 }
 /* logo div */
 .logo {
-  height: 60px;
+  margin-top: 10px;
+  height: 50px;
 }
 #logoImg {
   height: 36px;
@@ -38,7 +38,7 @@ h1 {
   font-size: 50px;
 }
 h4 {
-  font-size: 20px;
+  font-size: 25px;
   letter-spacing: 2px;
   font-weight: 300;
 }
@@ -56,23 +56,64 @@ h4 {
   text-align: left;
 }
 .leftDiv h2:nth-child(1) {
-  margin-top: 40%;
-  font-size: 35px;
+  margin-top: 50%;
+  font-size: 40px;
   font-weight: 400;
 }
 .leftDiv h2:nth-child(2) {
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bolder;
 }
 .leftDiv h5 {
   letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 200;
 }
 .centerDiv {
   position: relative;
   width: 50%;
   height: 100%;
-  background-color: rgb(36, 36, 171);
+  display: grid;
+  margin: 0 auto;
+  /* background-color: rgb(36, 36, 171); */
 }
+
+/* progressive-bar*/
+.progressBar {
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+}
+svg {
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
+  /* border: 1px solid black; */
+}
+.track {
+  stroke-width: 40px;
+  stroke: #d20094;
+  fill: none;
+  height: 400px;
+  width: 400px;
+}
+
+.progress {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  stroke-width: 40px;
+  stroke: #00ffff;
+  /* stroke-linecap: round; */
+  fill: none;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+/* progressive-bar*/
+
 .rightDiv {
   color: rgba(255, 255, 255, 0.715);
   position: relative;
@@ -81,14 +122,32 @@ h4 {
   text-align: right;
 }
 .rightDiv h2:nth-child(1) {
-  margin-top: 40%;
-  font-size: 35px;
-  font-weight: 400;
+  margin-top: 50%;
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-weight: 200;
 }
 .rightDiv h2:nth-child(2) {
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bolder;
 }
 .rightDiv h5 {
   letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 200;
+}
+.footerPart {
+  text-align: center;
+}
+#prceedBtn {
+  padding: 10px 40px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+#prceedBtn:hover {
+  box-shadow: rgba(50, 204, 243, 0.973) 0px 0px 10px 0px;
+  transition: box-shadow 0.3s ease-in;
 }
