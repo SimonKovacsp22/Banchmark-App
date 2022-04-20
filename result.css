@@ -107,10 +107,27 @@ svg {
   width: 400px;
   stroke-width: 40px;
   stroke: #00ffff;
-  /* stroke-linecap: round; */
-  fill: none;
   transform: rotate(-90deg);
+  /* stroke-linecap: round; */
+  /* stroke-dasharray: 0;
+  stroke-dashoffset: 0; */
+  stroke-dashoffset: 0;
+  fill: none;
   transform-origin: center;
+}
+.circlAnimation {
+  /* stroke-dasharray: 1000;
+  stroke-dashoffset: 1000; */
+  /* animation: dash 1s linear; */
+  transition: stroke-dashoffset 2s ease-in;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
 }
 /* progressive-bar*/
 

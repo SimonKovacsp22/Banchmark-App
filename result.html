@@ -49,6 +49,9 @@
       </div>
     </div>
     <script>
+      window.onload = function () {
+        setProgress(80);
+      };
       let progressCircle = document.querySelector(".progress");
       let radius = progressCircle.r.baseVal.value;
       //circumference of a circle = 2πr;
@@ -56,11 +59,13 @@
       progressCircle.style.strokeDasharray = circumference;
 
       //0 to 100
-      setProgress(65);
+      // setProgress(80);
 
       function setProgress(percent) {
         progressCircle.style.strokeDashoffset =
           circumference - (percent / -100) * circumference;
+        progressCircle.classList.add("circlAnimation");
+        progressCircle.setAttribute("stroke-dashoffset", persent * 10);
       }
     </script>
   </body>
