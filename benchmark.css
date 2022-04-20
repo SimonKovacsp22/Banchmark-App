@@ -184,3 +184,8 @@ body {
 #questionTotal {
   color: #d20094;
 }
+
+/* INVISIBLE CLASS */
+.hidden{
+  display: none;
+}
