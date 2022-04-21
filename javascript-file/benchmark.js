@@ -1,5 +1,6 @@
 // QUESTIONS
 
+
 const questions = [
   {
     category: "Science: Computers",
@@ -18,7 +19,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -67,7 +68,11 @@ const questions = [
     question:
       "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
-    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
+    incorrect_answers: [
+      "Ice Cream Sandwich",
+      "Jelly Bean",
+      "Marshmallow",
+    ],
   },
   {
     category: "Science: Computers",
@@ -96,34 +101,205 @@ const questions = [
   },
 ];
 
-// Credit: Mateusz Rybczonec
+let questionCount = 1
+let correctAnswersCount = 0
 
-const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 10;
-const ALERT_THRESHOLD = 5;
 
-const COLOR_CODES = {
-  info: {
-    color: "green",
-  },
-  warning: {
-    color: "orange",
-    threshold: WARNING_THRESHOLD,
-  },
-  alert: {
-    color: "red",
-    threshold: ALERT_THRESHOLD,
-  },
-};
+  questions.forEach(function(Question){
+    let questionsAndAnswersDivNode = document.createElement('div')
+    let questionAndAnswersHolderNode = document.getElementById('questions-container')
+    questionAndAnswersHolderNode.appendChild(questionsAndAnswersDivNode)
 
-const TIME_LIMIT = 10;
-let timePassed = 0;
-let timeLeft = TIME_LIMIT;
-let timerInterval = null;
-// let remainingPathColor = COLOR_CODES.info.color;
-let remainingPathColor = COLOR_CODES.info.color;
+    let questionH2Node = document.createElement('h2')
+    questionH2Node.innerText = Question.question
+    questionH2Node.classList.add('question-style')
+    
+    questionsAndAnswersDivNode.appendChild(questionH2Node)
+    let correctAnsButtonNode = document.createElement('button')
+    correctAnsButtonNode.innerText = Question.correct_answer
+    correctAnsButtonNode.classList.add('btn')
+    correctAnsButtonNode.setAttribute('id','correct')
+    questionsAndAnswersDivNode.appendChild(correctAnsButtonNode)
+    Question.incorrect_answers.forEach(function(answer){
+      let incorrectAnsButtonNode = document.createElement('button')
+      incorrectAnsButtonNode.innerText = answer
+      incorrectAnsButtonNode.classList.add('btn')
+      questionsAndAnswersDivNode.appendChild(incorrectAnsButtonNode)
+    })
+})
+let allDivsContainingQuestionsNode = document.querySelectorAll('#questions-container > div')
+allDivsContainingQuestionsNode.forEach(function(element){
+  element.classList.add('display-not')
 
-document.getElementById("app").innerHTML = `
+})
+allDivsContainingQuestionsNode[0].classList.remove('display-not')
+let allButtonsWithAnswersNodes =document.getElementsByClassName('btn')
+for(let node of allButtonsWithAnswersNodes){
+  node.addEventListener('click',function(){ node.classList.toggle('selected')})
+}
+
+
+
+let submitBtn= document.querySelector('#submitBtn')
+
+
+submitBtn.addEventListener('click',queTrans =function (){
+  
+  
+let allQuestionsDivsNode = document.querySelectorAll('#questions-container >div')
+let questionNumberSpan = document.getElementById("questionNumber")
+questionNumberSpan.innerText =`${2}`
+ 
+  questionCount +=1
+  for (let index = 0; index < questions.length; index++) {
+    
+    if (!allQuestionsDivsNode[index].classList.contains('display-not')  ) {
+      
+      allQuestionsDivsNode[index].classList.add('display-not')
+      
+      allQuestionsDivsNode[index+1].classList.remove('display-not')
+      
+      return 1
+
+      
+    };
+    
+    questionNumberSpan.innerText =`${questionCount}`
+  }
+  return questionCount
+})
+
+
+
+
+
+
+
+allQuestions= document.querySelectorAll('#questions-container > div')
+checkIfAnswerSelectedIsCorrect = function(){
+  
+ 
+  let length =0
+  let currentButton
+  for (let index = 0; index < questions.length; index++) {
+    length = allQuestions[index].querySelectorAll('button').length
+    
+    for (let j = 0; j < length; j++) {
+      currentButton = allQuestions[index].querySelectorAll('button')[j]
+       if(currentButton.classList.contains('selected')&& (currentButton.id==('correct'))){
+         correctAnswersCount+=1
+
+
+       }
+      
+      
+    }
+   return correctAnswersCount
+}
+
+
+}
+
+
+
+  
+ 
+
+
+// makeSureOnlyOneAnswerGetsSelected = function(){
+//   for (let index = 0; index < questions.length; index++) {
+//     length = allQuestions[index].querySelectorAll('button').length
+//     for (let j = 0; j < length; j++) {
+//       currentButton = allQuestions[index].querySelectorAll('button')[j]
+//        if(currentButton.classList.contains('selected')){
+//          switch(j){
+//           case 0:
+//             for(let k =1; k <length; k++){
+//               allQuestions[index].querySelectorAll('button')[k].classList.remove('selected')
+//             };
+//             break;
+//            case 1:
+            
+//               allQuestions[index].querySelectorAll('button')[0].classList.remove('selected');
+//               allQuestions[index].querySelectorAll('button')[2].classList.remove('selected');
+//               allQuestions[index].querySelectorAll('button')[3].classList.remove('selected');
+//               break;
+//               case 2:
+//                 allQuestions[index].querySelectorAll('button')[0].classList.remove('selected');
+//               allQuestions[index].querySelectorAll('button')[1].classList.remove('selected');
+//               allQuestions[index].querySelectorAll('button')[3].classList.remove('selected');
+//               break;
+//               case 3:
+//                 allQuestions[index].querySelectorAll('button')[0].classList.remove('selected');
+//               allQuestions[index].querySelectorAll('button')[1].classList.remove('selected');
+//               allQuestions[index].querySelectorAll('button')[2].classList.remove('selected');
+              
+
+
+
+            
+
+//          }
+         
+
+//         }
+      
+//       }
+   
+//     }
+
+//   }
+//  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ const FULL_DASH_ARRAY = 283;
+ const WARNING_THRESHOLD = 10;
+ const ALERT_THRESHOLD = 5;
+
+ const COLOR_CODES = {
+   info: {
+     color: "green",
+   },
+   warning: {
+     color: "orange",
+     threshold: WARNING_THRESHOLD,
+   },
+   alert: {
+     color: "red",
+     threshold: ALERT_THRESHOLD,
+   },
+ };
+
+
+
+ const TIME_LIMIT = 10;
+ let timePassed = 0;
+ let timeLeft = TIME_LIMIT;
+ let timerInterval = null;
+ let remainingPathColor = COLOR_CODES.info.color;
+
+ document.getElementById("app").innerHTML = `
 <div class="base-timer">
 <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 <g class="base-timer__circle">
@@ -142,120 +318,100 @@ document.getElementById("app").innerHTML = `
 </g>
 </svg>
 <span id="base-timer-label" class="base-timer__label">${formatTime(
-  timeLeft
+timeLeft
 )}</span>
 </div>
 `;
 
-let h2 = document.querySelector("h2");
-
-let btns = document.querySelectorAll(".btn");
-
-// TO GET THE RANDOM OBJECT INSIDE ARRAYS
-function ranQuestionsObj() {
-  let randNumber = Math.trunc(Math.random() * questions.length);
-  const randObject = questions[randNumber];
-  return randObject;
-}
-
-// console.log(ranQuestionsObj());
-// // INITIALISE MY WORK
-
-let incorrectAnswers = ranQuestionsObj().incorrect_answers;
-let correctAnswer = ranQuestionsObj().correct_answer;
 
 let myTime = new Date().getSeconds();
-let mySec = Number(myTime.toString().slice(0, 2));
+let mySec = Number(myTime.toString().slice(0,2));
+ startTimer();
 
-function randomQuestion() {
-  let question = ranQuestionsObj().question;
-  console.log("Hello Lidia");
+ function onTimesUp() {
+   clearInterval(timerInterval);
+ }
 
-  h2.innerText = question;
-  for (let i = 0; i < btns.length; i++) {
-    let answer = [...incorrectAnswers, correctAnswer];
-    btns[i].innerText = answer[i];
-    if (answer[i] === undefined) {
-      btns[i].classList.add("hidden");
-    }
-  }
-}
+ function startTimer() {
+    setInterval(() => {
+     timePassed = timePassed += 1;
+     timeLeft = TIME_LIMIT - timePassed;
+     document.getElementById("base-timer-label").innerHTML =
+       formatTime(timeLeft);
+     setCircleDasharray();
+     setRemainingPathColor(timeLeft);
 
-randomQuestion();
-startTimer();
+     if (timeLeft === 0) {
+        console.log("Times Up");
+    //    onTimesUp();
+        timeLeft = 10;
+      //  randomQuestion();
 
-function onTimesUp() {
-  clearInterval(timerInterval);
-}
+     }
+   }, 1000);
+ }
+ 
 
-function startTimer() {
-  setInterval(() => {
-    timePassed = timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
-    document.getElementById("base-timer-label").innerHTML =
-      formatTime(timeLeft);
-    setCircleDasharray();
-    setRemainingPathColor(timeLeft);
+ function formatTime(time) {
+   // const minutes = Math.floor(time / 60);
+   // let seconds = time % 60;
+   let seconds = time;
 
-    if (timeLeft === 0) {
-      console.log("Times Up");
-      // onTimesUp();
-      timeLeft = 0;
-      randomQuestion();
-    }
-  }, 1000);
-}
+   if (seconds < 10) {
+     seconds = `0${seconds}`;
+   }
 
-function formatTime(time) {
-  // const minutes = Math.floor(time / 60);
-  // let seconds = time % 60;
-  let seconds = time;
+   // return `${minutes}:${seconds}`;
+   return `${seconds}`;
+ }
 
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
+ function setRemainingPathColor(timeLeft) {
+   const { alert, warning, info } = COLOR_CODES;
+   if (timeLeft <= alert.threshold) {
+     document
+       .getElementById("base-timer-path-remaining")
+       .classList.remove(warning.color);
+     document
+       .getElementById("base-timer-path-remaining")
+       .classList.add(alert.color);
+   } else if (timeLeft <= warning.threshold) {
+     document
+       .getElementById("base-timer-path-remaining")
+       .classList.remove(info.color);
+     document
+       .getElementById("base-timer-path-remaining")
+       .classList.add(warning.color);
+   }
+ }
 
-  // return `${minutes}:${seconds}`;
-  return `${seconds}`;
-}
+ function calculateTimeFraction() {
+   const rawTimeFraction = timeLeft / TIME_LIMIT;
+   return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+ }
 
-function setRemainingPathColor(timeLeft) {
-  const { alert, warning, info } = COLOR_CODES;
-  if (timeLeft <= alert.threshold) {
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.remove(warning.color);
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.add(alert.color);
-  } else if (timeLeft <= warning.threshold) {
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.remove(info.color);
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.add(warning.color);
-  }
-}
-
-function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-}
-
-function setCircleDasharray() {
-  const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
-  ).toFixed(0)} 283`;
-  document
-    .getElementById("base-timer-path-remaining")
-    .setAttribute("stroke-dasharray", circleDasharray);
-}
+ function setCircleDasharray() {
+   const circleDasharray = `${(
+     calculateTimeFraction() * FULL_DASH_ARRAY
+   ).toFixed(0)} 283`;
+   document
+     .getElementById("base-timer-path-remaining")
+     .setAttribute("stroke-dasharray", circleDasharray);
+ }
 
 // STARTING OF THE QUESTIONS ARRAY
 
 // SELECTING THE ELEMENTS
 
+
+
 // console.log(`this is my question ${question}`);
 // console.log(`Correct answer ${correctAnswer}`);
 // console.log(`incorrect answer ${incorrectAnswers}`);
+
+
+
+
+
+
+
+
