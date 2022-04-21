@@ -111,6 +111,8 @@ li {
 }
 
 [type="checkbox"] {
+  height:24px;
+  width:24px;
   opacity: 0;
   position: absolute;
   align-items: center;

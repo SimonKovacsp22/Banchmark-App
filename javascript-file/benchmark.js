@@ -163,9 +163,20 @@ questionNumberSpan.innerText =`${2}`
 
       
     };
-    
+    if(questionCount === 11){
+      submitBtn.classList.add('display-not')
+      let proceedBtnNode = document.getElementById('proceedBtn')
+      proceedBtnNode.classList.remove('display-not')
+      questionNumberSpan.classList.add('display-none')
+      // let aTagNode =document.createElement('a')
+      // aTagNode.setAttribute('href','./result.html')
+      // submitBtn.appendChild(aTagNode)
+
+
+    }
     questionNumberSpan.innerText =`${questionCount}`
   }
+  
   return questionCount
 })
 
@@ -187,17 +198,17 @@ checkIfAnswerSelectedIsCorrect = function(){
     for (let j = 0; j < long; j++) {
       currentButton = allQuestions[index].querySelectorAll('button')[j]
        if(currentButton.classList.contains('selected')&& (currentButton.id==('correct'))){
-         correctAnswersCount += 1
+         correctAnswersCount++;
 
 
        }
       
       
     }
-   return correctAnswersCount
+   
 }
 
-
+return correctAnswersCount
 }
 
 

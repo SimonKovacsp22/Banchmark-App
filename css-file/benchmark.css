@@ -22,6 +22,9 @@ body {
   margin: 0 auto;
   top: 8vh;
 }
+h2{
+
+}
 .logo {
   height: 100px;
 }
@@ -118,13 +121,16 @@ body {
 /* timer */
 
 /* question container */
-.questionContainer {
+.question-container {
+  margin-top: 30px ;
   position: relative;
   width: 100%;
   height: auto;
   text-align: center;
 }
 .question-style {
+  text-align: center;
+  margin-bottom: 50px;
   font-weight: 300;
   font-size: 50px;
   color: white;
@@ -150,6 +156,7 @@ body {
   /* background-color: #00ffff; */
 }
 .btn {
+  margin: 20px;
   width: 45%;
   padding: 20px 20px;
   border: none;
@@ -168,10 +175,23 @@ body {
     rgba(144, 0, 128, 1) 64%
   );
 }
+#proceedBtn{
+  position: absolute;
+  top: 220px;
+  left: 850px;
+  font-size: 20px;
+  font-weight: bold;
+    background-color: rgb(8, 248, 248);
+    border: none;
+    width: 200px;
+    height: 55px;
+    text-decoration: none;
+
+}
 #submitBtn{
   position: absolute;
-  top: 400px;
-  left: 1100px;
+  top: -75px;
+  left: 570px;
   font-size: 20px;
   font-weight: bold;
     background-color: rgb(8, 248, 248);
@@ -181,6 +201,10 @@ body {
 
 }
 #submitBtn:hover{
+  box-shadow: rgba(50, 204, 243, 0.973) 2px 2px 29px 0px;
+  transition: box-shadow 0.3s ease-in;
+}
+#proceedBtn:hover{
   box-shadow: rgba(50, 204, 243, 0.973) 2px 2px 29px 0px;
   transition: box-shadow 0.3s ease-in;
 }
