@@ -172,3 +172,15 @@ svg {
   box-shadow: rgba(50, 204, 243, 0.973) 0px 0px 10px 0px;
   transition: box-shadow 0.3s ease-in;
 }
+#calPresentage {
+  padding: 5px;
+  height: 20px;
+  width: 150px;
+  margin: auto;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #d20094;
+  text-align: center;
+  color: white;
+}

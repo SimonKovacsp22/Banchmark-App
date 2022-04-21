@@ -11,20 +11,18 @@ body {
   background-size: cover;
   overflow: hidden;
 }
-.display-not{
-  display:none
+.display-not {
+  display: none;
 }
 .container {
-  width: 70%;
+  width: 60%;
   max-height: 100%;
   /* background-color: aqua;  */
   position: relative;
   margin: 0 auto;
   top: 8vh;
 }
-h2{
 
-}
 .logo {
   height: 100px;
 }
@@ -122,17 +120,18 @@ h2{
 
 /* question container */
 .question-container {
-  margin-top: 30px ;
+  margin-top: 30px;
   position: relative;
   width: 100%;
   height: auto;
   text-align: center;
 }
 .question-style {
+  margin-top: 30px;
   text-align: center;
   margin-bottom: 50px;
   font-weight: 300;
-  font-size: 50px;
+  font-size: 30px;
   color: white;
   font-family: "Outfit", sans-serif;
 }
@@ -175,48 +174,50 @@ h2{
     rgba(144, 0, 128, 1) 64%
   );
 }
-#proceedBtn{
+#proceedBtn {
   position: absolute;
-  top: 220px;
-  left: 850px;
+  margin: auto;
+  left: 0;
+  right: 0;
   font-size: 20px;
   font-weight: bold;
-    background-color: rgb(8, 248, 248);
-    border: none;
-    width: 200px;
-    height: 55px;
-    text-decoration: none;
-
+  background-color: rgb(8, 248, 248);
+  border: none;
+  width: 200px;
+  height: 55px;
+  text-decoration: none;
 }
-#submitBtn{
+#proceedBtn a {
+  text-decoration: none;
+  color: #0b113b;
+}
+#submitBtn {
   position: absolute;
-  top: -75px;
-  left: 570px;
+  margin: auto;
+  left: 0;
+  right: 0;
   font-size: 20px;
   font-weight: bold;
-    background-color: rgb(8, 248, 248);
-    border: none;
-    width: 200px;
-    height: 55px;
-
+  background-color: rgb(8, 248, 248);
+  border: none;
+  width: 200px;
+  height: 55px;
 }
-#submitBtn:hover{
+#submitBtn:hover {
   box-shadow: rgba(50, 204, 243, 0.973) 2px 2px 29px 0px;
   transition: box-shadow 0.3s ease-in;
 }
-#proceedBtn:hover{
+#proceedBtn:hover {
   box-shadow: rgba(50, 204, 243, 0.973) 2px 2px 29px 0px;
   transition: box-shadow 0.3s ease-in;
 }
-.selected{
+.selected {
   background: linear-gradient(
     174deg,
     rgba(210, 0, 147, 1) 25%,
     rgba(144, 0, 128, 1) 64%
   );
-
 }
-
 
 /* footer Container */
 .footerContainer {
@@ -229,6 +230,12 @@ h2{
 }
 .footerContainer p {
   text-align: center;
+  position: absolute;
+  margin: auto;
+  top: 80px;
+
+  left: 0;
+  right: 0;
 }
 #questionNumber {
   color: white;
@@ -238,6 +245,6 @@ h2{
 }
 
 /* INVISIBLE CLASS */
-.hidden{
+.hidden {
   display: none;
 }
