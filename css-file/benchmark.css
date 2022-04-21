@@ -3,7 +3,7 @@
   padding: 0;
 }
 body {
-  background-image: url("../assets/bg.jpg");
+  background-image: url("./assets/bg.jpg");
   width: 100%;
   height: 100vh;
   position: relative;
@@ -11,20 +11,23 @@ body {
   background-size: cover;
   overflow: hidden;
 }
+.display-not{
+  display:none
+}
 .container {
-  width: 55%;
-  height: 100vh;
+  width: 70%;
+  max-height: 100%;
   /* background-color: aqua;  */
   position: relative;
   margin: 0 auto;
-  top: 7vh;
+  top: 8vh;
 }
 .logo {
-  height: 40px;
-  margin-bottom: 50px;
+  height: 100px;
 }
 #logoImg {
   height: 35px;
+  top: 5%;
 }
 /* timer */
 
@@ -76,7 +79,7 @@ body {
 }
 
 .base-timer__path-remaining.red {
-  color: #fb1100;
+  color: #00ffff;
 }
 
 .base-timer__label {
@@ -117,24 +120,22 @@ body {
 /* question container */
 .questionContainer {
   position: relative;
-  top: 20px;
   width: 100%;
   height: auto;
   text-align: center;
 }
-.questionContainer h2 {
-  margin-top: 80px;
+.question-style {
   font-weight: 300;
-  font-size: 30px;
+  font-size: 50px;
   color: white;
   font-family: "Outfit", sans-serif;
 }
-.questionContainer h1 {
+/* .questionContainer h1 {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 50px;
   color: white;
   font-family: "Outfit", sans-serif;
-}
+} */
 
 .optionContainer {
   margin-top: 30px;
@@ -167,6 +168,31 @@ body {
     rgba(144, 0, 128, 1) 64%
   );
 }
+#submitBtn{
+  position: absolute;
+  top: 400px;
+  left: 1100px;
+  font-size: 20px;
+  font-weight: bold;
+    background-color: rgb(8, 248, 248);
+    border: none;
+    width: 200px;
+    height: 55px;
+
+}
+#submitBtn:hover{
+  box-shadow: rgba(50, 204, 243, 0.973) 2px 2px 29px 0px;
+  transition: box-shadow 0.3s ease-in;
+}
+.selected{
+  background: linear-gradient(
+    174deg,
+    rgba(210, 0, 147, 1) 25%,
+    rgba(144, 0, 128, 1) 64%
+  );
+
+}
+
 
 /* footer Container */
 .footerContainer {
@@ -174,7 +200,8 @@ body {
   text-align: center;
   color: white;
   font-size: 18px;
-  top: 20vh;
+  bottom: -20%;
+  top: 100px;
 }
 .footerContainer p {
   text-align: center;
@@ -187,6 +214,6 @@ body {
 }
 
 /* INVISIBLE CLASS */
-.hidden {
+.hidden{
   display: none;
 }
