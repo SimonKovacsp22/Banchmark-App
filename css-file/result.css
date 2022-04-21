@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("../assets/bg.jpg");
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  font-family: "Outfit", sans-serif;
+  background-size: cover;
+  overflow: hidden;
+}
+/* main container */
+.container {
+  width: 55%;
+  height: 100vh;
+  /* background-color: aqua;  */
+  position: relative;
+  margin: 0 auto;
+  top: 7vh;
+}
+/* logo div */
+.logo {
+  height: 40px;
+  margin-bottom: 50px;
+}
+#logoImg {
+  height: 35px;
+}
+.content {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+  line-height: 45px;
+}
+h1 {
+  font-size: 50px;
+}
+h4 {
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+.textContent {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+}
+.leftDiv {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  color: white;
+  text-align: left;
+}
+.leftDiv h2:nth-child(1) {
+  margin-top: 50%;
+  font-size: 40px;
+  font-weight: 400;
+}
+.leftDiv h2:nth-child(2) {
+  font-size: 40px;
+  font-weight: bolder;
+}
+.leftDiv h5 {
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 200;
+}
+.centerDiv {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: grid;
+  margin: 0 auto;
+  /* background-color: rgb(36, 36, 171); */
+}
+
+/* progressive-bar*/
+.progressBar {
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+}
+svg {
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
+  /* border: 1px solid black; */
+}
+.track {
+  stroke-width: 40px;
+  stroke: #d20094;
+  fill: none;
+  height: 400px;
+  width: 400px;
+}
+
+.progress {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  stroke-width: 40px;
+  stroke: #00ffff;
+  transform: rotate(-90deg);
+  /* stroke-linecap: round; */
+  /* stroke-dasharray: 0;
+  stroke-dashoffset: 0; */
+  stroke-dashoffset: 0;
+  fill: none;
+  transform-origin: center;
+}
+.circlAnimation {
+  /* stroke-dasharray: 1000;
+  stroke-dashoffset: 1000; */
+  /* animation: dash 1s linear; */
+  transition: stroke-dashoffset 2s ease-in;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+/* progressive-bar*/
+
+.rightDiv {
+  color: rgba(255, 255, 255, 0.715);
+  position: relative;
+  width: 25%;
+  height: 100%;
+  text-align: right;
+}
+.rightDiv h2:nth-child(1) {
+  margin-top: 50%;
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+.rightDiv h2:nth-child(2) {
+  font-size: 40px;
+  font-weight: bolder;
+}
+.rightDiv h5 {
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 200;
+}
+.footerPart {
+  text-align: center;
+}
+#prceedBtn {
+  padding: 10px 40px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+#prceedBtn a {
+  text-decoration: none;
+  color: white;
+}
+#prceedBtn:hover {
+  box-shadow: rgba(50, 204, 243, 0.973) 0px 0px 10px 0px;
+  transition: box-shadow 0.3s ease-in;
+}
