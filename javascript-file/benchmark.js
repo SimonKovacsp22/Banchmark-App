@@ -170,6 +170,7 @@ let mySec = Number(myTime.toString().slice(0, 2));
 function randomQuestion() {
   let question = ranQuestionsObj().question;
   console.log("Hello Lidia");
+
   h2.innerText = question;
   for (let i = 0; i < btns.length; i++) {
     let answer = [...incorrectAnswers, correctAnswer];
