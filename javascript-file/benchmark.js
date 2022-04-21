@@ -179,15 +179,15 @@ allQuestions= document.querySelectorAll('#questions-container > div')
 checkIfAnswerSelectedIsCorrect = function(){
   
  
-  let length =0
+  let long =0
   let currentButton
   for (let index = 0; index < questions.length; index++) {
-    length = allQuestions[index].querySelectorAll('button').length
+    long = allQuestions[index].querySelectorAll('button').length
     
-    for (let j = 0; j < length; j++) {
+    for (let j = 0; j < long; j++) {
       currentButton = allQuestions[index].querySelectorAll('button')[j]
        if(currentButton.classList.contains('selected')&& (currentButton.id==('correct'))){
-         correctAnswersCount+=1
+         correctAnswersCount += 1
 
 
        }
