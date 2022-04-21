@@ -155,6 +155,8 @@ timeLeft
 let h2 = document.querySelector("h2");
 
 let btns = document.querySelectorAll(".btn");
+let qNumber = document.querySelector("#questionNumber");
+let qTotal = document.querySelector("#questionTotal");
 
 // TO GET THE RANDOM OBJECT INSIDE ARRAYS
 function ranQuestionsObj(){
@@ -168,27 +170,65 @@ function ranQuestionsObj(){
 // console.log(ranQuestionsObj());
 // // INITIALISE MY WORK
 
-let incorrectAnswers = ranQuestionsObj().incorrect_answers;
-let correctAnswer = ranQuestionsObj().correct_answer;
 
 
-let myTime = new Date().getSeconds();
-let mySec = Number(myTime.toString().slice(0,2));
+// let myTime = new Date().getSeconds();
+// let mySec = Number(myTime.toString().slice(0,2));
+
+
 
 function randomQuestion(){
+    
+    
+
+} 
+
+
+function buttonDisplay(){
     let question = ranQuestionsObj().question;
-    console.log("Hello Lidia");
-    h2.innerText = question;
-    for(let i = 0; i < btns.length; i++){
-        let answer = [...incorrectAnswers, correctAnswer];
+    let incorrectAnswers = ranQuestionsObj().incorrect_answers;
+    let correctAnswer = ranQuestionsObj().correct_answer;
+    let qDisplay = 0;
+
+    console.log(correctAnswer, incorrectAnswers)
+    let answer = [...incorrectAnswers, correctAnswer];
+    for(let i = 0; i < answer.length; i++){
         btns[i].innerText = answer[i];
-        if(answer[i] === undefined){
-            btns[i].classList.add("hidden");
-        }
-    }
+        
+            
+            qDisplay += 1;
+            qNumber.innerText = qDisplay;
+
+            let count = 5;
+            
+            
+                
+                setInterval(function(){
+                    h2.innerText = question;
+                    if(count === 0){
+                        count = 5;
+                        h2.innerText = question;
+                    }
+                        count--;
+                }, 10000)
+    
+                   
+
 }
 
-randomQuestion();
+    // let answer = [...incorrectAnswers, correctAnswer];
+    // for(let i = 0; i < btns.length; i++){
+        
+        
+    //     btns[i].innerText = answer[i];
+    //     if(answer[i] === undefined){
+    //         btns[i].classList.add("hidden");
+    //     }
+    // }
+}
+
+buttonDisplay();
+// randomQuestion();
  startTimer();
 
  function onTimesUp() {
@@ -207,10 +247,14 @@ randomQuestion();
      if (timeLeft === 0) {
         console.log("Times Up");
     //    onTimesUp();
-        timeLeft = 10;
-       randomQuestion();
+    
+            timeLeft = 10;
+            randomQuestion();
+    
+        
 
      }
+
    }, 1000);
  }
 
@@ -258,21 +302,6 @@ randomQuestion();
    document
      .getElementById("base-timer-path-remaining")
      .setAttribute("stroke-dasharray", circleDasharray);
- }
-
-// STARTING OF THE QUESTIONS ARRAY
-
-// SELECTING THE ELEMENTS
-
-
-
-// console.log(`this is my question ${question}`);
-// console.log(`Correct answer ${correctAnswer}`);
-// console.log(`incorrect answer ${incorrectAnswers}`);
-
-
-
-
-
+ };
 
 
