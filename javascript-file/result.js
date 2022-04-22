@@ -20,7 +20,7 @@ console.log(questionNum);
 let correctNum = randomResult();
 console.log(correctNum);
 
-let percentage = ( correctNum / 100) * ( questionNum * 100);
+let percentage = ( correctNum ) * ( questionNum );
 console.log(percentage);
 
 // TO GENERATE RANDOM 
