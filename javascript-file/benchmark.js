@@ -97,25 +97,28 @@ const questions = [
 ];
 
 let questionCount = 1;
-let correctAnswersCount = 0;
 
+//Dynamicly creating divs to contain questions and answers from array: questions
 questions.forEach(function (Question) {
   let questionsAndAnswersDivNode = document.createElement("div");
   let questionAndAnswersHolderNode = document.getElementById(
     "questions-container"
   );
   questionAndAnswersHolderNode.appendChild(questionsAndAnswersDivNode);
+  // Creating h2s for questions
 
   let questionH2Node = document.createElement("h2");
   questionH2Node.innerText = Question.question;
   questionH2Node.classList.add("question-style");
+  // Creating buttons for correct answers
 
   questionsAndAnswersDivNode.appendChild(questionH2Node);
   let correctAnsButtonNode = document.createElement("button");
   correctAnsButtonNode.innerText = Question.correct_answer;
-  correctAnsButtonNode.classList.add("btn");
-  correctAnsButtonNode.setAttribute("id", "correct");
+  correctAnsButtonNode.classList.add("btn","correct");
+  ;
   questionsAndAnswersDivNode.appendChild(correctAnsButtonNode);
+  // Creating buttons for incorrect answers
   Question.incorrect_answers.forEach(function (answer) {
     let incorrectAnsButtonNode = document.createElement("button");
     incorrectAnsButtonNode.innerText = answer;
@@ -126,10 +129,14 @@ questions.forEach(function (Question) {
 let allDivsContainingQuestionsNode = document.querySelectorAll(
   "#questions-container > div"
 );
+// Hiding all divs with questions because i want only one to be displayed at a time
+// By adding a class
 allDivsContainingQuestionsNode.forEach(function (element) {
   element.classList.add("display-not");
 });
+// Showing the first question div by taking the class away
 allDivsContainingQuestionsNode[0].classList.remove("display-not");
+// Adding event listener 'click' to all buttons with answers so that when u click they get class 'selected'
 let allButtonsWithAnswersNodes = document.getElementsByClassName("btn");
 for (let node of allButtonsWithAnswersNodes) {
   node.addEventListener("click", function () {
@@ -139,33 +146,53 @@ for (let node of allButtonsWithAnswersNodes) {
 
 let submitBtn = document.querySelector("#submitBtn");
 
-submitBtn.addEventListener(
-  "click",
-  (queTrans = function () {
-    let allQuestionsDivsNode = document.querySelectorAll(
-      "#questions-container >div"
-    );
+// Creating a SUBMIT button to go through questions
+submitBtn.addEventListener("click",(queTrans = function () {
+    let allQuestionsDivsNode = document.querySelectorAll("#questions-container >div");
+    // When clicked the question number in footer increases by one
     let questionNumberSpan = document.getElementById("questionNumber");
     questionNumberSpan.innerText = `${2}`;
 
     questionCount += 1;
+    // When clicked the question on index  gets class display-not and question on index+1 looses the smae class
     for (let index = 0; index < questions.length; index++) {
       if (!allQuestionsDivsNode[index].classList.contains("display-not")) {
+        if(index === 9){
+          return 1
+        }
+        else{
         allQuestionsDivsNode[index].classList.add("display-not");
 
         allQuestionsDivsNode[index + 1].classList.remove("display-not");
 
         return 1;
+        }
       }
-      if (questionCount === 11) {
+    // When we hide last question we hide SUBMIT button
+    // We show PROCEED button
+    // Hide question number in footer
+    // Hide last question
+    // Hide timer
+    //
+      if (questionCount === questions.length+1) {
         submitBtn.classList.add("display-not");
         let proceedBtnNode = document.getElementById("proceedBtn");
         proceedBtnNode.classList.remove("display-not");
+        
+        
         questionNumberSpan.classList.add("display-none");
-        // let aTagNode =document.createElement('a')
-        // aTagNode.setAttribute('href','./result.html')
-        // submitBtn.appendChild(aTagNode)
+        let questionCounter =document.getElementById('question-count');
+        questionCounter.classList.add('display-not');
+        allQuestionsDivsNode[questions.length-1].classList.add("display-not");
+        document.getElementById('timerContainer').classList.add('display-not');
+        
+        document.querySelector('#proceedBtn > a').href =`./result.html?correct=${correctAnswers()}&questions=${questions.length}`
+        
+         
+
+       
       }
+      
       questionNumberSpan.innerText = `${questionCount}`;
     }
 
@@ -174,25 +201,34 @@ submitBtn.addEventListener(
 );
 
 allQuestions = document.querySelectorAll("#questions-container > div");
-checkIfAnswerSelectedIsCorrect = function () {
-  let long = 0;
-  let currentButton;
-  for (let index = 0; index < questions.length; index++) {
-    long = allQuestions[index].querySelectorAll("button").length;
-
-    for (let j = 0; j < long; j++) {
-      currentButton = allQuestions[index].querySelectorAll("button")[j];
-      if (
-        currentButton.classList.contains("selected") &&
-        currentButton.id == "correct"
-      ) {
-        correctAnswersCount++;
-      }
+allButtons = document.querySelectorAll('button')
+let correctAnswers= function(){
+  let correctAnswersCount=0;
+  allButtons.forEach(function(button){
+    if(button.classList.contains("selected")&& button.classList.contains("correct")){
+      correctAnswersCount++;
     }
-  }
-
+  })
   return correctAnswersCount;
-};
+}
+
+// checkIfAnswerSelectedIsCorrect = function () {
+//   let long = 0;
+//   let currentButton;
+//   for (let index = 0; index < questions.length; index++) {
+//     long = allQuestions[index].querySelectorAll("button").length;
+
+//     for (let j = 0; j < long; j++) {
+//       currentButton = allQuestions[index].querySelectorAll("button")[j];
+//       if ((currentButton.id == "correct")&& !(currentButton.classList.contains("selected") )) {
+//         correctAnswersCount--;
+//       }
+//     }
+//   }
+
+//   return correctAnswersCount;
+// };
+
 
 // makeSureOnlyOneAnswerGetsSelected = function(){
 //   for (let index = 0; index < questions.length; index++) {
@@ -251,7 +287,7 @@ const COLOR_CODES = {
   },
 };
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 15;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -285,7 +321,7 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-startTimer();
+// startTimer();
 
 function onTimesUp() {
   setInterval(timerInterval);
@@ -299,12 +335,16 @@ function startTimer() {
       formatTime(timeLeft);
     setCircleDasharray();
     setRemainingPathColor(timeLeft);
+    console.log(timeLeft)
 
-    if (timeLeft === 0) {
-      onTimesUp();
+    if (timeLeft < 0) {
+      timeLeft= TIME_LIMIT
+      return timeLeft
+      
     }
   }, 1000);
 }
+
 
 function formatTime(time) {
   // const minutes = Math.floor(time / 60);
@@ -314,6 +354,7 @@ function formatTime(time) {
   if (seconds < 10) {
     seconds = `0${seconds}`;
   }
+  
 
   // return `${minutes}:${seconds}`;
   return `${seconds}`;
@@ -351,10 +392,5 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-// STARTING OF THE QUESTIONS ARRAY
 
-// SELECTING THE ELEMENTS
 
-// console.log(`this is my question ${question}`);
-// console.log(`Correct answer ${correctAnswer}`);
-// console.log(`incorrect answer ${incorrectAnswers}`);

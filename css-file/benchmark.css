@@ -190,7 +190,13 @@ body {
 #proceedBtn a {
   text-decoration: none;
   color: #0b113b;
+  padding-left: 51px;
+  padding-right: 51px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: default;
 }
+
 #submitBtn {
   position: absolute;
   margin: auto;

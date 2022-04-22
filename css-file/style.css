@@ -99,12 +99,24 @@ li {
   background-color: rgb(8, 248, 248);
   border: none;
   width: 200px;
+  height: 55px;
   margin-top: -10px;
 }
 #prceedBtn a {
+  position: relative;
   text-decoration: none;
   color: #0b113b;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 51px;
+  padding-right:51px;
+  cursor: default;
+  left: -40px;
 }
+.disable-pointer{
+  pointer-events: none;
+}
+
 #prceedBtn:hover {
   box-shadow: rgba(50, 204, 243, 0.973) 2px 2px 29px 0px;
   transition: box-shadow 0.3s ease-in;
