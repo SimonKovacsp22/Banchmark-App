@@ -115,8 +115,7 @@ questions.forEach(function (Question) {
   questionsAndAnswersDivNode.appendChild(questionH2Node);
   let correctAnsButtonNode = document.createElement("button");
   correctAnsButtonNode.innerText = Question.correct_answer;
-  correctAnsButtonNode.classList.add("btn","correct");
-  ;
+  correctAnsButtonNode.classList.add("btn", "correct");
   questionsAndAnswersDivNode.appendChild(correctAnsButtonNode);
   // Creating buttons for incorrect answers
   Question.incorrect_answers.forEach(function (answer) {
@@ -148,8 +147,12 @@ let submitBtn = document.querySelector("#submitBtn");
 let questionResult = document.querySelector(".footerContainer p");
 
 // Creating a SUBMIT button to go through questions
-submitBtn.addEventListener("click",(queTrans = function () {
-    let allQuestionsDivsNode = document.querySelectorAll("#questions-container >div");
+submitBtn.addEventListener(
+  "click",
+  (queTrans = function () {
+    let allQuestionsDivsNode = document.querySelectorAll(
+      "#questions-container >div"
+    );
     // When clicked the question number in footer increases by one
     let questionNumberSpan = document.getElementById("questionNumber");
     questionNumberSpan.innerText = `${2}`;
@@ -158,50 +161,40 @@ submitBtn.addEventListener("click",(queTrans = function () {
     // When clicked the question on index  gets class display-not and question on index+1 looses the smae class
     for (let index = 0; index < questions.length; index++) {
       if (!allQuestionsDivsNode[index].classList.contains("display-not")) {
-        if(index === 9){
-          return 1
-        }
-        else{
-        allQuestionsDivsNode[index].classList.add("display-not");
+        if (index === 9) {
+          return 1;
+        } else {
+          allQuestionsDivsNode[index].classList.add("display-not");
 
-        allQuestionsDivsNode[index + 1].classList.remove("display-not");
+          allQuestionsDivsNode[index + 1].classList.remove("display-not");
 
-        return 1;
+          return 1;
         }
       }
-    // When we hide last question we hide SUBMIT button
-    // We show PROCEED button
-    // Hide question number in footer
-    // Hide last question
-    // Hide timer
-    //
-      if (questionCount === questions.length+1) {
+      // When we hide last question we hide SUBMIT button
+      // We show PROCEED button
+      // Hide question number in footer
+      // Hide last question
+      // Hide timer
+      //
+      if (questionCount === questions.length + 1) {
         submitBtn.classList.add("display-not");
         let proceedBtnNode = document.getElementById("proceedBtn");
         proceedBtnNode.classList.remove("display-not");
-<<<<<<< HEAD
-        
-        
-        questionNumberSpan.classList.add("display-none");
-        let questionCounter =document.getElementById('question-count');
-        questionCounter.classList.add('display-not');
-        allQuestionsDivsNode[questions.length-1].classList.add("display-not");
-        document.getElementById('timerContainer').classList.add('display-not');
-        
-        document.querySelector('#proceedBtn > a').href =`./result.html?correct=${correctAnswers()}&questions=${questions.length}`
-        
-         
 
-       
-=======
-        // questionNumberSpan.classList.add("display-none");
-        questionResult.style.display = "none";
-        // let aTagNode =document.createElement('a')
-        // aTagNode.setAttribute('href','./result.html')
-        // submitBtn.appendChild(aTagNode)
->>>>>>> 476a19bf853927a8fdf9b91a03fe23101328ab61
+        questionNumberSpan.classList.add("display-none");
+        let questionCounter = document.getElementById("question-count");
+        questionCounter.classList.add("display-not");
+        allQuestionsDivsNode[questions.length - 1].classList.add("display-not");
+        document.getElementById("timerContainer").classList.add("display-not");
+
+        document.querySelector(
+          "#proceedBtn > a"
+        ).href = `./result.html?correct=${correctAnswers()}&questions=${
+          questions.length
+        }`;
       }
-      
+
       questionNumberSpan.innerText = `${questionCount}`;
     }
 
@@ -210,16 +203,19 @@ submitBtn.addEventListener("click",(queTrans = function () {
 );
 
 allQuestions = document.querySelectorAll("#questions-container > div");
-allButtons = document.querySelectorAll('button')
-let correctAnswers= function(){
-  let correctAnswersCount=0;
-  allButtons.forEach(function(button){
-    if(button.classList.contains("selected")&& button.classList.contains("correct")){
+allButtons = document.querySelectorAll("button");
+let correctAnswers = function () {
+  let correctAnswersCount = 0;
+  allButtons.forEach(function (button) {
+    if (
+      button.classList.contains("selected") &&
+      button.classList.contains("correct")
+    ) {
       correctAnswersCount++;
     }
-  })
+  });
   return correctAnswersCount;
-}
+};
 
 // checkIfAnswerSelectedIsCorrect = function () {
 //   let long = 0;
@@ -237,7 +233,6 @@ let correctAnswers= function(){
 
 //   return correctAnswersCount;
 // };
-
 
 // makeSureOnlyOneAnswerGetsSelected = function(){
 //   for (let index = 0; index < questions.length; index++) {
@@ -296,11 +291,7 @@ const COLOR_CODES = {
   },
 };
 
-<<<<<<< HEAD
 const TIME_LIMIT = 15;
-=======
-const TIME_LIMIT = 20;
->>>>>>> 476a19bf853927a8fdf9b91a03fe23101328ab61
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -346,16 +337,14 @@ function startTimer() {
       formatTime(timeLeft);
     setCircleDasharray();
     setRemainingPathColor(timeLeft);
-    console.log(timeLeft)
+    console.log(timeLeft);
 
     if (timeLeft < 0) {
-      timeLeft= TIME_LIMIT
-      return timeLeft
-      
+      timeLeft = TIME_LIMIT;
+      return timeLeft;
     }
   }, 1000);
 }
-
 
 function formatTime(time) {
   // const minutes = Math.floor(time / 60);
@@ -365,7 +354,6 @@ function formatTime(time) {
   if (seconds < 10) {
     seconds = `0${seconds}`;
   }
-  
 
   // return `${minutes}:${seconds}`;
   return `${seconds}`;
@@ -403,5 +391,3 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-
-

@@ -10,7 +10,7 @@ let stars = document.querySelectorAll(".singleStar");
 //   console.log(sum);
 
 for (let i = 0; i < stars.length; i++) {
-  const singleStar = star[i];
+  const singleStar = stars[i];
   singleStar.addEventListener("click", function (event) {
     //   console.log([i]);
     for (let index = 0; index <= i; index++) {

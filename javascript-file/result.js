@@ -8,12 +8,11 @@ let circumference = radius * 2 * Math.PI;
 progressCircle.style.strokeDasharray = circumference;
 
 let params = new URLSearchParams(document.location.search);
-let newCorrectAnswer = parseInt(params.get("correct"))
-console.log(newCorrectAnswer)
+let newCorrectAnswer = parseInt(params.get("correct"));
+console.log(newCorrectAnswer);
 
-let newNUmberofQuestions = parseInt(params.get("questions"))
-console.log(newNUmberofQuestions)
-
+let newNUmberofQuestions = parseInt(params.get("questions"));
+console.log(newNUmberofQuestions);
 
 //0 to 100
 // setProgress(80);
@@ -22,11 +21,7 @@ let wrongPercentage = document.getElementById("wrongPresentage");
 let rightCount = document.getElementById("rightCount");
 let wrongCount = document.getElementById("wrongCount");
 
-<<<<<<< HEAD
-let questionNum = newNUmberofQuestions
-=======
-let questionNum = 10;
->>>>>>> 476a19bf853927a8fdf9b91a03fe23101328ab61
+let questionNum = newNUmberofQuestions;
 console.log(questionNum);
 // let correctNum = document.getElementById("calPresentage").value;
 let correctNum = newCorrectAnswer;
