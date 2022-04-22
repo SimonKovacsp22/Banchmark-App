@@ -14,21 +14,20 @@ let wrongPercentage = document.getElementById("wrongPresentage");
 let rightCount = document.getElementById("rightCount");
 let wrongCount = document.getElementById("wrongCount");
 
-let questionNum = randomResult();
+let questionNum = 10;
 console.log(questionNum);
 // let correctNum = document.getElementById("calPresentage").value;
 let correctNum = randomResult();
 console.log(correctNum);
 
-let percentage = ( correctNum ) * ( questionNum );
+let percentage = (correctNum / 100) * (questionNum * 100);
 console.log(percentage);
 
-// TO GENERATE RANDOM 
+// TO GENERATE RANDOM
 
-function randomResult(){
+function randomResult() {
   return Math.trunc(Math.random() * 10);
 }
-
 
 function setProgress(percent) {
   progressCircle.style.strokeDashoffset =
@@ -42,12 +41,8 @@ function setProgress(percent) {
     questionNum - correctNum + "/" + questionNum + " questions";
 }
 
-
-
-function checkResult(){
-   setProgress(percentage)
+function checkResult() {
+  setProgress(percentage);
 }
 
-
-
-setInterval(checkResult, 1000)
+setInterval(checkResult, 1000);

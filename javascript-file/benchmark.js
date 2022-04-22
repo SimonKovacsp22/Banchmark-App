@@ -138,6 +138,7 @@ for (let node of allButtonsWithAnswersNodes) {
 }
 
 let submitBtn = document.querySelector("#submitBtn");
+let questionResult = document.querySelector(".footerContainer p");
 
 submitBtn.addEventListener(
   "click",
@@ -161,7 +162,8 @@ submitBtn.addEventListener(
         submitBtn.classList.add("display-not");
         let proceedBtnNode = document.getElementById("proceedBtn");
         proceedBtnNode.classList.remove("display-not");
-        questionNumberSpan.classList.add("display-none");
+        // questionNumberSpan.classList.add("display-none");
+        questionResult.style.display = "none";
         // let aTagNode =document.createElement('a')
         // aTagNode.setAttribute('href','./result.html')
         // submitBtn.appendChild(aTagNode)
@@ -251,15 +253,11 @@ const COLOR_CODES = {
   },
 };
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 20;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let remainingPathColor = COLOR_CODES.info.color;
-submitBtn.addEventListener("click", function () {
-  console.log("first");
-  timeLeft = 10;
-});
 
 document.getElementById("app").innerHTML = `
 <div class="base-timer">
@@ -289,6 +287,8 @@ startTimer();
 
 function onTimesUp() {
   setInterval(timerInterval);
+  window.location.reload();
+  //location.reload(startTimer());
 }
 
 function startTimer() {
