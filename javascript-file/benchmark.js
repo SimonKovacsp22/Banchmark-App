@@ -145,6 +145,7 @@ for (let node of allButtonsWithAnswersNodes) {
 }
 
 let submitBtn = document.querySelector("#submitBtn");
+let questionResult = document.querySelector(".footerContainer p");
 
 // Creating a SUBMIT button to go through questions
 submitBtn.addEventListener("click",(queTrans = function () {
@@ -178,6 +179,7 @@ submitBtn.addEventListener("click",(queTrans = function () {
         submitBtn.classList.add("display-not");
         let proceedBtnNode = document.getElementById("proceedBtn");
         proceedBtnNode.classList.remove("display-not");
+<<<<<<< HEAD
         
         
         questionNumberSpan.classList.add("display-none");
@@ -191,6 +193,13 @@ submitBtn.addEventListener("click",(queTrans = function () {
          
 
        
+=======
+        // questionNumberSpan.classList.add("display-none");
+        questionResult.style.display = "none";
+        // let aTagNode =document.createElement('a')
+        // aTagNode.setAttribute('href','./result.html')
+        // submitBtn.appendChild(aTagNode)
+>>>>>>> 476a19bf853927a8fdf9b91a03fe23101328ab61
       }
       
       questionNumberSpan.innerText = `${questionCount}`;
@@ -287,15 +296,15 @@ const COLOR_CODES = {
   },
 };
 
+<<<<<<< HEAD
 const TIME_LIMIT = 15;
+=======
+const TIME_LIMIT = 20;
+>>>>>>> 476a19bf853927a8fdf9b91a03fe23101328ab61
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let remainingPathColor = COLOR_CODES.info.color;
-submitBtn.addEventListener("click", function () {
-  console.log("first");
-  timeLeft = 10;
-});
 
 document.getElementById("app").innerHTML = `
 <div class="base-timer">
@@ -325,6 +334,8 @@ document.getElementById("app").innerHTML = `
 
 function onTimesUp() {
   setInterval(timerInterval);
+  window.location.reload();
+  //location.reload(startTimer());
 }
 
 function startTimer() {
